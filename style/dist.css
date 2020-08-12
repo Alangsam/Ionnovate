@@ -9891,5 +9891,9 @@ h3 {
     border-color: #dee2e6;
   }
 }
+#dogPreferences,
+#catPreferences {
+  display: none;
+}
 
 /*# sourceMappingURL=dist.css.map */
