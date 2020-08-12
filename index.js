@@ -120,6 +120,111 @@ const dog = [
   },
 ];
 
+const cats = [
+  {
+    weight: "skinny",
+    activeness: "lazy",
+    coat: "tabby",
+    url:
+      "https://www.catster.com/wp-content/uploads/2018/01/McGee_Mackerel-Tabby_2_by-Denise-LeBeau.jpg",
+  },
+  {
+    weight: "skinny",
+    activeness: "Active",
+    coat: "tabby",
+    url:
+      "https://www.hillspet.com/content/dam/cp-sites/hills/hills-pet/en_us/exported/cat-care/Skyword/images/striped-tabby-laying-on-bed-SW.jpg",
+  },
+  {
+    weight: "skinny",
+    activeness: "lazy",
+    coat: "calico",
+    url:
+      "https://www.coveredincathair.com/sites/coveredincathair.com/files/Skinny%20Calico%20Kitty.jpg",
+  },
+  {
+    weight: "skinny",
+    activeness: "active",
+    coat: "tuxedo",
+    url:
+      "https://1.bp.blogspot.com/--XL9hd9Pnvk/TuO21Svmv4I/AAAAAAAAAUo/vri_XZ1lOGA/s1600/Tuxedo+Kitty.jpg",
+  },
+  {
+    weight: "skinny",
+    activeness: "lazy",
+    coat: "tuxedo",
+    url:
+      "https://lh3.googleusercontent.com/proxy/_IXdEGJSopq7a4uQQIpvaNrDgjdgbhaU9LY6A98eGRlz9s-EXv-TXm11l-NH0oCHHR2m-7XAAALzwuFejuL0ei6noyzX8Iv3WnmBzHG4iG3hJka1zRJSUFZ6Or1lpa7Qjc3_dC_kDjLvVzxkWxWNLn_v-A",
+  },
+  {
+    weight: "normal",
+    activeness: "active",
+    coat: "tabby",
+    url:
+      "https://i2.wp.com/consciouscat.net/wp-content/uploads/2017/09/tabby-cat-2-e1504603272898.jpg?fit=550%2C366&ssl=1",
+  },
+  {
+    weight: "normal",
+    activeness: "lazy",
+    coat: "tabby",
+    url:
+      "https://i.pinimg.com/736x/bb/af/a5/bbafa5688a7e64c4431a3b575f9035c6.jpg",
+  },
+  {
+    weight: "normal",
+    activeness: "active",
+    coat: "calico",
+    url: "https://www.catster.com/wp-content/uploads/2018/03/Calico-cat.jpg",
+  },
+  {
+    weight: "normal",
+    activeness: "lazy",
+    coat: "calico",
+    url:
+      "https://i.pinimg.com/originals/78/0d/3a/780d3a0d9106db662859af5adeb82220.jpg",
+  },
+  {
+    weight: "normal",
+    activeness: "active",
+    coat: "tuxedo",
+    url:
+      "https://i.pinimg.com/originals/42/25/22/422522477e9fb69ddbabbb041444381a.jpg",
+  },
+  {
+    weight: "fat",
+    activeness: "lazy",
+    coat: "tabby",
+    url:
+      "https://i.pinimg.com/736x/b9/68/ed/b968edd400c69c17989ce4bfbf4eb3c4.jpg",
+  },
+  {
+    weight: "fat",
+    activeness: "active",
+    coat: "tuxedo",
+    url: "https://www.catster.com/wp-content/uploads/2015/06/fat-cat-11.jpg",
+  },
+  {
+    weight: "fat",
+    activeness: "lazy",
+    coat: "tuxedo",
+    url: "https://i.ytimg.com/vi/EBnzcNHhj4Q/maxresdefault.jpg",
+  },
+  {
+    weight: "fat",
+    activeness: "active",
+    coat: "calico",
+    url:
+      "https://i.pinimg.com/originals/b4/b0/0a/b4b00aa511c40e52a6bba93894d68ce9.jpg",
+  },
+  {
+    weight: "fat",
+    activeness: "lazy",
+    coat: "calico",
+    url:
+      "https://i.pinimg.com/originals/41/b6/51/41b651de7b4ebf9724a9d392b6b95420.jpg",
+  },
+];
+
 document.addEventListener("DOMContentLoaded", function (event) {
   function userObject() {
     const animal = document.getElementById("animal-form").value;
@@ -161,7 +266,7 @@ function userObject() {
     urlArr.forEach((url) => {
       let imgElement = document.createElement("img");
       imgElement.src = url;
-      imgElement.className = "col-4 offset-4 img-thumbnail";
+      imgElement.className = "col-4 offset-4 img-thumbnail my-4";
       document.getElementById("animalImages").appendChild(imgElement);
       console.log(imgElement);
     });
