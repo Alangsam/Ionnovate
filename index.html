@@ -21,7 +21,11 @@
           Search our shelter, Find the animal(s) for you
         </h1>
         <div class="clearfix"></div>
-        <div id="typeOfAnimal" class="col-4 border text-center">
+        <div
+          id="typeOfAnimal"
+          class="col-4 border text-center"
+          onclick="showAttributes()"
+        >
           <form id="animal-form">
             <div class="py-3"></div>
             <div class="form-check form-check-inline w-50">
@@ -319,7 +323,7 @@
             <label><h4>Last Name</h4></label>
             <input id="petLast" name="name" />
           </form>
-          <button class="btn btn-dark btn-block" onclick="userObject()">
+          <button class="btn btn-dark btn-block" onclick="animalImages()">
             Look for Pet
           </button>
         </div>

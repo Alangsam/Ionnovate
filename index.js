@@ -232,7 +232,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }
   userObject();
 });
-function userObject() {
+
+function showAttributes() {
+  const animal = document.querySelector('input[name="whichSpecies"]:checked')
+    .value;
+  if (animal) {
+    document.getElementById("preferencesDefault").style.display = "none";
+  }
+  if (animal === "Dog") {
+    document.getElementById("dogPreferences").style.display = "block";
+    document.getElementById("catPreferences").style.display = "none";
+  } else if (animal === "Cat") {
+    document.getElementById("catPreferences").style.display = "block";
+    document.getElementById("dogPreferences").style.display = "none";
+  }
+}
+
+function dogObject() {
   const animal = document.querySelector('input[name="whichSpecies"]:checked')
     .value;
   const dogSize = document.querySelector('input[name="whichSize"]:checked')
@@ -241,8 +257,6 @@ function userObject() {
     'input[name="whichCraziness"]:checked'
   ).value;
   const dogCoat = document.querySelector('input[name="whichCoat"]:checked')
-    .value;
-  const petName = document.querySelector('input[name="whichCoat"]:checked')
     .value;
   if (animal.toLowerCase() === "dog") {
     const animalObject = {
@@ -272,6 +286,55 @@ function userObject() {
     });
   }
 }
+
+function catObject() {
+  const animal = document.querySelector('input[name="whichSpecies"]:checked')
+    .value;
+  const catSize = document.querySelector('input[name="whichWeight"]:checked')
+    .value;
+  const catEnergy = document.querySelector('input[name="whichEnergy"]:checked')
+    .value;
+  const catCoat = document.querySelector('input[name="whichCoatCat"]:checked')
+    .value;
+  if (animal === "Cat") {
+    const animalObject = {
+      size: catSize,
+      coat: catCoat,
+      personality: catEnergy,
+    };
+    const matchedCats = cats.filter((catObj) => {
+      if (
+        catObj.weight.toLowerCase() === animalObject.size.toLowerCase() &&
+        catObj.coat.toLowerCase() === animalObject.coat.toLowerCase() &&
+        catObj.activeness.toLowerCase() ===
+          animalObject.personality.toLowerCase()
+      ) {
+        return catObj;
+      }
+    });
+    const urlArr = matchedCats.map((obj) => obj.url);
+    const myNode = document.getElementById("animalImages");
+    myNode.innerHTML = "";
+    urlArr.forEach((url) => {
+      let imgElement = document.createElement("img");
+      imgElement.src = url;
+      imgElement.className = "col-4 offset-4 img-thumbnail my-4";
+      document.getElementById("animalImages").appendChild(imgElement);
+      console.log(imgElement);
+    });
+  }
+}
+
+function animalImages() {
+  const animal = document.querySelector('input[name="whichSpecies"]:checked')
+    .value;
+  if (animal === "Dog") {
+    dogObject();
+  } else if (animal === "Cat") {
+    catObject();
+  }
+}
+
 // function insertImages(userObject, animalObject) {
 //     switch(userObject.)
 //   console.log(document.getElementById("animalImages"));
