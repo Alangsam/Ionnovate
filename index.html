@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/dist.css" />
+    <title>Animal finder</title>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="index.js"></script>
+  </head>
+  <body class="">
+    <div class="">
+      <div class="row">
+        <h1 class="col-12 text-center">Find the animal(s) for you</h1>
+        <div class="clearfix"></div>
+        <div id="typeOfAnimal" class="col-4 border text-center">
+          <form id="animal-form">
+            <div class="py-3"></div>
+            <div class="form-check form-check-inline w-50">
+              <label for="dogSelect" class="form-check-label"
+                ><h4>Dog</h4></label
+              >
+              <input
+                id="dogSelect"
+                class="form-check-input"
+                type="radio"
+                name="whichSpecies"
+                value="Dog"
+              />
+            </div>
+            <div class="form-check-inline">
+              <label for="catSelect" class="form-check-label"
+                ><h4>Cat</h4></label
+              >
+              <input
+                id="catSelect"
+                class="form-check-input"
+                type="radio"
+                name="whichSpecies"
+                value="Cat"
+              />
+            </div>
+            <div class="py-3"></div>
+            <div class="form-check-inline w-50">
+              <label for="fishSelect" class="form-check-label"
+                ><h4>Fish</h4></label
+              >
+              <input
+                id="fishSelect"
+                class="form-check-input"
+                type="radio"
+                name="whichSpecies"
+                value="Fish"
+              />
+            </div>
+            <div class="form-check-inline">
+              <label for="birdSelect" class="form-check-label"
+                ><h4>Bird</h4></label
+              >
+              <input
+                id="birdSelect"
+                class="form-check-input"
+                type="radio"
+                name="whichSpecies"
+                value="Bird"
+              />
+            </div>
+            <div class="py-3"></div>
+            <div class="form-check-inline col-6 offset-3">
+              <label for="rabbitSelect" class="form-check-label"
+                ><h4>Rabbit</h4></label
+              >
+              <input
+                id="rabbitSelect"
+                class="form-check-input"
+                type="radio"
+                name="whichSpecies"
+                value="Rabbit"
+              />
+            </div>
+            <div class="py-3"></div>
+          </form>
+        </div>
+        <div class="clearfix"></div>
+        <div id="dogPreferences" class="col-4 border">
+          <form class="">
+            <div class="py-3"></div>
+            <div class="form-check-inline col-4">
+              <label for="smallSelect" class="form-check-label"
+                ><h4>Small</h4></label
+              >
+              <input
+                id="smallSelect"
+                class="form-check-input"
+                type="radio"
+                name="whichSize"
+                value="Small"
+              />
+            </div>
+            <div class="form-check-inline col-4">
+              <label for="mediumSelect" class="form-check-label"
+                ><h4>Medium</h4></label
+              >
+              <input
+                id="mediumSelect"
+                class="form-check-input"
+                type="radio"
+                name="whichSize"
+                value="Medium"
+              />
+            </div>
+            <div class="form-check-inline col-2">
+              <label for="largeSelect" class="form-check-label"
+                ><h4>Large</h4></label
+              >
+              <input
+                id="largeSelect"
+                class="form-check-input"
+                type="radio"
+                name="whichSize"
+                value="Large"
+              />
+            </div>
+            <div class="py-3"></div>
+            <div class="form-check-inline col-5">
+              <label for="obedientDog" class="form-check-label"
+                ><h4>Obedient</h4></label
+              >
+              <input
+                id="obedientDog"
+                class="form-check-input"
+                type="radio"
+                name="whichCraziness"
+                value="Obedient"
+              />
+            </div>
+            <div class="form-check-inline col-5">
+              <label for="rambunctiousDog" class="form-check-label"
+                ><h4>Rambunctious</h4></label
+              >
+              <input
+                id="rambunctiousDog"
+                class="form-check-input"
+                type="radio"
+                name="whichCraziness"
+                value="Rambunctious"
+              />
+            </div>
+            <div class="py-3"></div>
+            <div class="form-check-inline col-4">
+              <label for="darkCoat" class="form-check-label"
+                ><h4>Dark</h4></label
+              >
+              <input
+                id="darkCoat"
+                class="form-check-input"
+                type="radio"
+                name="whichCoat"
+                value="Dark"
+              />
+            </div>
+            <div class="form-check-inline col-3">
+              <label for="lightCoat" class="form-check-label"
+                ><h4>Light</h4></label
+              >
+              <input
+                id="lightCoat"
+                class="form-check-input"
+                type="radio"
+                name="whichCoat"
+                value="Light"
+              />
+            </div>
+            <div class="form-check-inline col-3">
+              <label for="splotchyCoat" class="form-check-label"
+                ><h4>Splotchy</h4></label
+              >
+              <input
+                id="splotchyCoat"
+                class="form-check-input"
+                type="radio"
+                name="whichCoat"
+                value="Splotchy"
+              />
+            </div>
+            <div class="py-3"></div>
+          </form>
+        </div>
+        <div id="catPreferences">
+          <form></form>
+        </div>
+        <div id="fishPreferences">
+          <form></form>
+        </div>
+        <div id="birdPreferences">
+          <form></form>
+        </div>
+        <div id="rabbitPreferences">
+          <form></form>
+        </div>
+        <div id="miscelaneousInfo" class="col-4 border">
+          <div class="py-3"></div>
+          <form>
+            <label><h4>First Name</h4></label>
+            <input id="petFirst" name="name" />
+            <div class="py-3"></div>
+            <label><h4>Last Name</h4></label>
+            <input id="petLast" name="name" />
+          </form>
+          <button class="btn btn-dark btn-block" onclick="userObject()">
+            Look for Pet
+          </button>
+        </div>
+        <div id="animalImages" class="py-5 col-12"></div>
+      </div>
+    </div>
+  </body>
+</html>
