@@ -258,33 +258,34 @@ function dogObject() {
   ).value;
   const dogCoat = document.querySelector('input[name="whichCoat"]:checked')
     .value;
-  if (animal.toLowerCase() === "dog") {
-    const animalObject = {
-      size: dogSize,
-      coat: dogCoat,
-      personality: dogPersonality,
-    };
-    const matchedDogs = dog.filter((dogObj) => {
-      if (
-        dogObj.size.toLowerCase() === animalObject.size.toLowerCase() &&
-        dogObj.coat.toLowerCase() === animalObject.coat.toLowerCase() &&
-        dogObj.personality.toLowerCase() ===
-          animalObject.personality.toLowerCase()
-      ) {
-        return dogObj;
-      }
-    });
-    const urlArr = matchedDogs.map((obj) => obj.url);
-    const myNode = document.getElementById("animalImages");
-    myNode.innerHTML = "";
-    urlArr.forEach((url) => {
-      let imgElement = document.createElement("img");
-      imgElement.src = url;
-      imgElement.className = "col-4 offset-4 img-thumbnail my-4";
-      document.getElementById("animalImages").appendChild(imgElement);
-      console.log(imgElement);
-    });
-  }
+  const animalObject = {
+    size: dogSize,
+    coat: dogCoat,
+    personality: dogPersonality,
+  };
+  const matchedDogs = dog.filter((dogObj) => {
+    if (
+      dogObj.size.toLowerCase() === animalObject.size.toLowerCase() &&
+      dogObj.coat.toLowerCase() === animalObject.coat.toLowerCase() &&
+      dogObj.personality.toLowerCase() ===
+        animalObject.personality.toLowerCase()
+    ) {
+      return dogObj;
+    }
+  });
+  //   if ((matchedDogs.length = 0)) {
+  //     document.getElementById("animalName").innerHTML = "";
+  //   }
+  const urlArr = matchedDogs.map((obj) => obj.url);
+  const myNode = document.getElementById("animalImages");
+  myNode.innerHTML = "";
+  urlArr.forEach((url) => {
+    let imgElement = document.createElement("img");
+    imgElement.src = url;
+    imgElement.className = "col-4 offset-4 img-thumbnail my-4";
+    document.getElementById("animalImages").appendChild(imgElement);
+    console.log(imgElement);
+  });
 }
 
 function catObject() {
@@ -296,33 +297,34 @@ function catObject() {
     .value;
   const catCoat = document.querySelector('input[name="whichCoatCat"]:checked')
     .value;
-  if (animal === "Cat") {
-    const animalObject = {
-      size: catSize,
-      coat: catCoat,
-      personality: catEnergy,
-    };
-    const matchedCats = cats.filter((catObj) => {
-      if (
-        catObj.weight.toLowerCase() === animalObject.size.toLowerCase() &&
-        catObj.coat.toLowerCase() === animalObject.coat.toLowerCase() &&
-        catObj.activeness.toLowerCase() ===
-          animalObject.personality.toLowerCase()
-      ) {
-        return catObj;
-      }
-    });
-    const urlArr = matchedCats.map((obj) => obj.url);
-    const myNode = document.getElementById("animalImages");
-    myNode.innerHTML = "";
-    urlArr.forEach((url) => {
-      let imgElement = document.createElement("img");
-      imgElement.src = url;
-      imgElement.className = "col-4 offset-4 img-thumbnail my-4";
-      document.getElementById("animalImages").appendChild(imgElement);
-      console.log(imgElement);
-    });
-  }
+
+  const animalObject = {
+    size: catSize,
+    coat: catCoat,
+    personality: catEnergy,
+  };
+  const matchedCats = cats.filter((catObj) => {
+    if (
+      catObj.weight.toLowerCase() === animalObject.size.toLowerCase() &&
+      catObj.coat.toLowerCase() === animalObject.coat.toLowerCase() &&
+      catObj.activeness.toLowerCase() === animalObject.personality.toLowerCase()
+    ) {
+      return catObj;
+    }
+  });
+  //   if ((matchedCats.length = 0)) {
+  //     document.getElementById("animalName").innerHTML = "";
+  //   }
+  const urlArr = matchedCats.map((obj) => obj.url);
+  const myNode = document.getElementById("animalImages");
+  myNode.innerHTML = "";
+  urlArr.forEach((url) => {
+    let imgElement = document.createElement("img");
+    imgElement.src = url;
+    imgElement.className = "col-4 offset-4 img-thumbnail my-4";
+    document.getElementById("animalImages").appendChild(imgElement);
+    console.log(imgElement);
+  });
 }
 
 function animalImages() {
@@ -337,10 +339,19 @@ function animalImages() {
   } else if (animal === "Cat") {
     catObject();
   }
-  document.getElementById("animalName").innerHTML = "";
-  let animalName = document.createElement("h3");
-  animalName.innerText = "This Could Be " + name;
-  document.getElementById("animalName").appendChild(animalName);
+
+  if (document.getElementById("animalImages").innerHTML.length > 0) {
+    document.getElementById("animalName").innerHTML = "";
+    let animalName = document.createElement("h3");
+    animalName.innerText = "This Could Be " + name;
+    document.getElementById("animalName").appendChild(animalName);
+  } else {
+    document.getElementById("animalName").innerHTML = "";
+    let animalName = document.createElement("h3");
+    animalName.innerText =
+      "Sorry, none of our animals match your specifications :(";
+    document.getElementById("animalName").appendChild(animalName);
+  }
 }
 
 // function insertImages(userObject, animalObject) {
