@@ -328,11 +328,19 @@ function catObject() {
 function animalImages() {
   const animal = document.querySelector('input[name="whichSpecies"]:checked')
     .value;
+  const name =
+    document.getElementById("petFirst").value +
+    " " +
+    document.getElementById("petLast").value;
   if (animal === "Dog") {
     dogObject();
   } else if (animal === "Cat") {
     catObject();
   }
+  document.getElementById("animalName").innerHTML = "";
+  let animalName = document.createElement("h3");
+  animalName.innerText = "This Could Be " + name;
+  document.getElementById("animalName").appendChild(animalName);
 }
 
 // function insertImages(userObject, animalObject) {
