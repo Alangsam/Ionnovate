@@ -9892,7 +9892,8 @@ h3 {
   }
 }
 #dogPreferences,
-#catPreferences {
+#catPreferences,
+#fishPreferences {
   display: none;
 }
 

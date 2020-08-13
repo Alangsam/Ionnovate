@@ -225,13 +225,110 @@ const cats = [
   },
 ];
 
-document.addEventListener("DOMContentLoaded", function (event) {
-  function userObject() {
-    const animal = document.getElementById("animal-form").value;
-    return console.log(animal);
-  }
-  userObject();
-});
+const fishes = [
+  {
+    care: "easy",
+    color: "light",
+    number: "One",
+    url:
+      "https://petfishonline.com/wp-content/uploads/2019/12/%D7%A2%D7%99%D7%A6%D7%95%D7%91-%D7%9C%D7%9C%D7%90-%D7%A9%D7%9D-14.png",
+  },
+  {
+    care: "easy",
+    color: "Dark",
+    number: "One",
+    url:
+      "https://lh3.googleusercontent.com/proxy/Os_1qk0__QHAky_kcYMilmV5nuwKuRUH_Hd2-z9FSQo3kps-kZkoiqwUR48C4EChIZvthQzoe6r6tLbnPjsHE_2g1AUVpxkKK7ATCnciNGfj4kCGVEA5Z4HJf9W0aKdlMW0WXzh091N-Ng",
+  },
+  {
+    care: "easy",
+    color: "Misc",
+    number: "Few",
+    url:
+      "https://www.peta.org/wp-content/uploads/2019/08/iStock-644996948_itthipolB-1.jpg",
+  },
+  {
+    care: "easy",
+    color: "light",
+    number: "Few",
+    url:
+      "https://images-na.ssl-images-amazon.com/images/I/81V8e2y4njL._AC_SY450_.jpg",
+  },
+  {
+    care: "easy",
+    color: "Dark",
+    number: "Many",
+    url:
+      "https://tropicalfishparadise.com/wp-content/uploads/2018/01/20180107_165513.jpg",
+  },
+  {
+    care: "easy",
+    color: "Misc",
+    number: "Many",
+    url: "https://d2j6dbq0eux0bg.cloudfront.net/images/5391016/986882728.jpg",
+  },
+  {
+    care: "easy",
+    color: "light",
+    number: "One",
+    url: "https://www.bettalove.com/Images/Betta_splendens,white.jpg",
+  },
+  {
+    care: "hard",
+    color: "Dark",
+    number: "One",
+    url:
+      "https://forum.americanexpedition.us/images/channel-catfish/channel-catfish-in-another-tank.jpg",
+  },
+  {
+    care: "hard",
+    color: "Misc",
+    number: "One",
+    url:
+      "https://i.pinimg.com/originals/de/08/d3/de08d3969241fe1a97d1885f91cfcd12.jpg",
+  },
+  {
+    care: "hard",
+    color: "light",
+    number: "Few",
+    url:
+      "https://dlgdxii3fgupk.cloudfront.net/myaquariumclub.com/images/fbfiles/images/DSCF0005_v_1401702837.JPG",
+  },
+  {
+    care: "hard",
+    color: "Dark",
+    number: "Few",
+    url:
+      "https://i.pinimg.com/originals/1b/9a/ac/1b9aac7d7b14dab0b285be79a27a5880.jpg",
+  },
+  {
+    care: "hard",
+    color: "Misc",
+    number: "Many",
+    url:
+      "https://upload.wikimedia.org/wikipedia/commons/4/48/Neontetra_tmy.JPG",
+  },
+  {
+    care: "hard",
+    color: "light",
+    number: "Many",
+    url: "https://i.ytimg.com/vi/QKD0q-w5vfg/maxresdefault.jpg",
+  },
+  {
+    care: "hard",
+    color: "Dark",
+    number: "Few",
+    url:
+      "https://bulk-share.slickpic.com/album/share/MhMw2iwzhOUkOw/10269792.0/1000/p/IMG_4109.jpg",
+  },
+  {
+    care: "hard",
+    color: "Misc",
+    number: "One",
+    url:
+      "https://cdn.statically.io/img/nextshark.com/wp-content/uploads/2019/04/ASIAN_AROWANA-770x409.png?quality=100",
+  },
+];
 
 function showAttributes() {
   const animal = document.querySelector('input[name="whichSpecies"]:checked')
@@ -242,9 +339,15 @@ function showAttributes() {
   if (animal === "Dog") {
     document.getElementById("dogPreferences").style.display = "block";
     document.getElementById("catPreferences").style.display = "none";
+    document.getElementById("fishPreferences").style.display = "none";
   } else if (animal === "Cat") {
     document.getElementById("catPreferences").style.display = "block";
     document.getElementById("dogPreferences").style.display = "none";
+    document.getElementById("fishPreferences").style.display = "none";
+  } else if (animal === "Fish") {
+    document.getElementById("fishPreferences").style.display = "block";
+    document.getElementById("dogPreferences").style.display = "none";
+    document.getElementById("catPreferences").style.display = "none";
   }
 }
 
@@ -284,7 +387,7 @@ function dogObject() {
     imgElement.src = url;
     imgElement.className = "col-4 offset-4 img-thumbnail my-4";
     document.getElementById("animalImages").appendChild(imgElement);
-    console.log(imgElement);
+    //console.log(imgElement);
   });
 }
 
@@ -323,7 +426,44 @@ function catObject() {
     imgElement.src = url;
     imgElement.className = "col-4 offset-4 img-thumbnail my-4";
     document.getElementById("animalImages").appendChild(imgElement);
-    console.log(imgElement);
+    //console.log(imgElement);
+  });
+}
+
+function fishObject() {
+  const fishCare = document.querySelector(
+    'input[name="fishDifficulty"]:checked'
+  ).value;
+  const fishColor = document.querySelector('input[name="fishColor"]:checked')
+    .value;
+  const fishNumber = document.querySelector('input[name="fishNumber"]:checked')
+    .value;
+  const animalObject = {
+    care: fishCare,
+    color: fishColor,
+    number: fishNumber,
+  };
+  const matchedFishes = fishes.filter((fishObj) => {
+    if (
+      fishObj.care.toLowerCase() === animalObject.care.toLowerCase() &&
+      fishObj.color.toLowerCase() === animalObject.color.toLowerCase() &&
+      fishObj.number.toLowerCase() === animalObject.number.toLowerCase()
+    ) {
+      return fishObj;
+    }
+  });
+  //   if ((matchedDogs.length = 0)) {
+  //     document.getElementById("animalName").innerHTML = "";
+  //   }
+  const urlArr = matchedFishes.map((obj) => obj.url);
+  const myNode = document.getElementById("animalImages");
+  myNode.innerHTML = "";
+  urlArr.forEach((url) => {
+    let imgElement = document.createElement("img");
+    imgElement.src = url;
+    imgElement.className = "col-4 offset-4 img-thumbnail my-4";
+    document.getElementById("animalImages").appendChild(imgElement);
+    //console.log(imgElement);
   });
 }
 
@@ -338,6 +478,8 @@ function animalImages() {
     dogObject();
   } else if (animal === "Cat") {
     catObject();
+  } else if (animal === "Fish") {
+    fishObject();
   }
 
   if (document.getElementById("animalImages").innerHTML.length > 0) {
@@ -357,4 +499,3 @@ function animalImages() {
 // function insertImages(userObject, animalObject) {
 //     switch(userObject.)
 //   console.log(document.getElementById("animalImages"));
-// }
