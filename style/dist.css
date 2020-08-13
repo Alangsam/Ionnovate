@@ -9893,7 +9893,8 @@ h3 {
 }
 #dogPreferences,
 #catPreferences,
-#fishPreferences {
+#fishPreferences,
+#miscelaneousInfo {
   display: none;
 }
 

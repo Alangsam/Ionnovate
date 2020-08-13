@@ -351,6 +351,11 @@ function showAttributes() {
   }
 }
 
+function showNaming() {
+  document.getElementById("nameDefault").style.display = "none";
+  document.getElementById("miscelaneousInfo").style.display = "block";
+}
+
 function dogObject() {
   const animal = document.querySelector('input[name="whichSpecies"]:checked')
     .value;
