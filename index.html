@@ -17,7 +17,7 @@
   <body class="">
     <div class="container">
       <div class="row">
-        <h1 class="col-12 text-center">
+        <h1 class="col-12 text-center border rounded mb-5 mt-4 pb-2 pt-1">
           Search our shelter, Find the animal(s) for you
         </h1>
         <div class="clearfix"></div>
@@ -28,66 +28,42 @@
         >
           <form id="animal-form">
             <div class="py-3"></div>
-            <div class="form-check form-check-inline w-50">
+            <div class="form-check-inline">
               <label for="dogSelect" class="form-check-label"
                 ><h4>Dog</h4></label
               >
               <input
                 id="dogSelect"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="whichSpecies"
                 value="Dog"
               />
             </div>
+            <div class="clearfix py-3"></div>
             <div class="form-check-inline">
               <label for="catSelect" class="form-check-label"
                 ><h4>Cat</h4></label
               >
               <input
                 id="catSelect"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="whichSpecies"
                 value="Cat"
               />
             </div>
             <div class="py-3"></div>
-            <div class="form-check-inline w-50">
+            <div class="form-check-inline">
               <label for="fishSelect" class="form-check-label"
                 ><h4>Fish</h4></label
               >
               <input
                 id="fishSelect"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="whichSpecies"
                 value="Fish"
-              />
-            </div>
-            <div class="form-check-inline">
-              <label for="birdSelect" class="form-check-label"
-                ><h4>Bird</h4></label
-              >
-              <input
-                id="birdSelect"
-                class="form-check-input"
-                type="radio"
-                name="whichSpecies"
-                value="Bird"
-              />
-            </div>
-            <div class="py-3"></div>
-            <div class="form-check-inline col-6 offset-3">
-              <label for="rabbitSelect" class="form-check-label"
-                ><h4>Rabbit</h4></label
-              >
-              <input
-                id="rabbitSelect"
-                class="form-check-input"
-                type="radio"
-                name="whichSpecies"
-                value="Rabbit"
               />
             </div>
             <div class="py-3"></div>
@@ -97,206 +73,206 @@
         <div id="preferencesDefault" class="col-4 border text-center">
           <h2 class="py-5">Select an Animal</h2>
         </div>
-        <div id="dogPreferences" class="col-4 border">
+        <div id="dogPreferences" class="col-4 border p-0 text-center">
           <form class="">
             <div class="py-3"></div>
-            <div class="form-check-inline col-4">
+            <div class="form-check-inline p-0 pl-1 m-0 float-left">
               <label for="smallSelect" class="form-check-label"
-                ><h4>Small</h4></label
+                ><h5>Small</h5></label
               >
               <input
                 id="smallSelect"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="whichSize"
                 value="Small"
               />
             </div>
-            <div class="form-check-inline col-4">
+            <div class="form-check-inline p-0 m-0">
               <label for="mediumSelect" class="form-check-label"
-                ><h4>Medium</h4></label
+                ><h5>Medium</h5></label
               >
               <input
                 id="mediumSelect"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="whichSize"
                 value="Medium"
               />
             </div>
-            <div class="form-check-inline col-2">
+            <div class="form-check-inline p-0 pr-1 m-0 float-right">
               <label for="largeSelect" class="form-check-label"
-                ><h4>Large</h4></label
+                ><h5>Large</h5></label
               >
               <input
                 id="largeSelect"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="whichSize"
                 value="Large"
               />
             </div>
             <div class="py-3"></div>
-            <div class="form-check-inline col-5">
+            <div class="form-check-inline float-left pl-2">
               <label for="obedientDog" class="form-check-label"
-                ><h4>Obedient</h4></label
+                ><h5>Obedient</h5></label
               >
               <input
                 id="obedientDog"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="whichCraziness"
                 value="Obedient"
               />
             </div>
-            <div class="form-check-inline col-5">
+            <div class="form-check-inline float-right">
               <label for="rambunctiousDog" class="form-check-label"
-                ><h4>Rambunctious</h4></label
+                ><h5>Rambunctious</h5></label
               >
               <input
                 id="rambunctiousDog"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="whichCraziness"
                 value="Rambunctious"
               />
             </div>
             <div class="py-3"></div>
-            <div class="form-check-inline col-4">
+            <div class="py-3"></div>
+            <div class="form-check-inline float-left pl-2">
               <label for="darkCoat" class="form-check-label"
-                ><h4>Dark</h4></label
+                ><h5>Dark</h5></label
               >
               <input
                 id="darkCoat"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="whichCoat"
                 value="Dark"
               />
             </div>
-            <div class="form-check-inline col-3">
+            <div class="form-check-inline">
               <label for="lightCoat" class="form-check-label"
-                ><h4>Light</h4></label
+                ><h5>Light</h5></label
               >
               <input
                 id="lightCoat"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="whichCoat"
                 value="Light"
               />
             </div>
-            <div class="form-check-inline col-3">
+            <div class="form-check-inline float-right">
               <label for="splotchyCoat" class="form-check-label"
-                ><h4>Splotchy</h4></label
+                ><h5>Splotchy</h5></label
               >
               <input
                 id="splotchyCoat"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="whichCoat"
                 value="Splotchy"
               />
             </div>
-            <div class="py-3"></div>
           </form>
         </div>
-        <div id="catPreferences" class="col-4 border">
+        <div id="catPreferences" class="col-4 border text-center">
           <form class="">
             <div class="py-3"></div>
-            <div class="form-check-inline col-4">
+            <div class="form-check-inline float-left pl-2">
               <label for="skinnySelect" class="form-check-label"
-                ><h4>Skinny</h4></label
+                ><h5>Skinny</h5></label
               >
               <input
                 id="smallSelect"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="whichWeight"
                 value="Skinny"
               />
             </div>
-            <div class="form-check-inline col-4">
+            <div class="form-check-inline">
               <label for="normalSelect" class="form-check-label"
-                ><h4>Normal</h4></label
+                ><h5>Normal</h5></label
               >
               <input
                 id="normalSelect"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="whichWeight"
                 value="Normal"
               />
             </div>
-            <div class="form-check-inline col-2">
+            <div class="form-check-inline float-right">
               <label for="fatSelect" class="form-check-label"
-                ><h4>Fat</h4></label
+                ><h5>Fat</h5></label
               >
               <input
                 id="fatSelect"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="whichWeight"
                 value="Fat"
               />
             </div>
             <div class="py-3"></div>
-            <div class="form-check-inline col-5">
+            <div class="form-check-inline float-left pl-2">
               <label for="activeCat" class="form-check-label"
-                ><h4>Active</h4></label
+                ><h5>Active</h5></label
               >
               <input
                 id="activeCat"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="whichEnergy"
                 value="Active"
               />
             </div>
-            <div class="form-check-inline col-5">
+            <div class="form-check-inline float-right">
               <label for="lazyCat" class="form-check-label"
-                ><h4>Lazy</h4></label
+                ><h5>Lazy</h5></label
               >
               <input
                 id="lazyCat"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="whichEnergy"
                 value="Lazy"
               />
             </div>
-            <div class="py-3"></div>
-            <div class="form-check-inline col-4">
+            <div class="clearfix py-4"></div>
+            <div class="form-check-inline float-left pl-2">
               <label for="tabbyCoat" class="form-check-label"
-                ><h4>Tabby</h4></label
+                ><h5>Tabby</h5></label
               >
               <input
                 id="tabbyCoat"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="whichCoatCat"
                 value="Tabby"
               />
             </div>
-            <div class="form-check-inline col-3">
+            <div class="form-check-inline">
               <label for="tuxedoCoat" class="form-check-label"
-                ><h4>Tuxedo</h4></label
+                ><h5>Tuxedo</h5></label
               >
               <input
                 id="tuxedoCoat"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="whichCoatCat"
                 value="Tuxedo"
               />
             </div>
-            <div class="form-check-inline col-3">
+            <div class="form-check-inline float-right">
               <label for="calicoCoat" class="form-check-label"
-                ><h4>Calico</h4></label
+                ><h5>Calico</h5></label
               >
               <input
                 id="calicoCoat"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="whichCoatCat"
                 value="Calico"
@@ -305,7 +281,7 @@
             <div class="py-3"></div>
           </form>
         </div>
-        <div id="fishPreferences" class="col-4 border">
+        <div id="fishPreferences" class="col-4 border pl-4">
           <form>
             <div class="py-3"></div>
             <div class="form-check-inline col-5">
@@ -314,7 +290,7 @@
               >
               <input
                 id="easyFish"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="fishDifficulty"
                 value="Easy"
@@ -326,7 +302,7 @@
               >
               <input
                 id="activeFish"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="fishDifficulty"
                 value="Active"
@@ -339,7 +315,7 @@
               >
               <input
                 id="lightFish"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="fishColor"
                 value="Light"
@@ -351,7 +327,7 @@
               >
               <input
                 id="darkFish"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="fishColor"
                 value="Dark"
@@ -363,7 +339,7 @@
               >
               <input
                 id="miscFish"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="fishColor"
                 value="Misc"
@@ -374,7 +350,7 @@
               <label for="oneFish" class="form-check-label"><h4>One</h4></label>
               <input
                 id="oneFish"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="fishNumber"
                 value="One"
@@ -384,7 +360,7 @@
               <label for="fewFish" class="form-check-label"><h4>Few</h4></label>
               <input
                 id="fewFish"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="fishNumber"
                 value="Few"
@@ -396,7 +372,7 @@
               >
               <input
                 id="manyFish"
-                class="form-check-input"
+                class="form-check-input mb-1 ml-1"
                 type="radio"
                 name="fishNumber"
                 value="Many"
@@ -404,24 +380,20 @@
             </div>
           </form>
         </div>
-        <div id="birdPreferences">
-          <form></form>
-        </div>
-        <div id="rabbitPreferences">
-          <form></form>
-        </div>
         <div id="miscelaneousInfo" class="col-4 border">
-          <div class="py-3"></div>
-          <form>
+          <div class="pb-2"></div>
+          <form class="text-center">
             <label><h4>First Name</h4></label>
-            <input id="petFirst" name="name" />
-            <div class="py-3"></div>
+            <input id="petFirst" name="name" class="form-control" />
+            <div class="pb-3"></div>
             <label><h4>Last Name</h4></label>
-            <input id="petLast" name="name" />
+            <input id="petLast" name="name" class="form-control" />
           </form>
+          <div class="pb-3"></div>
           <button class="btn btn-dark btn-block" onclick="animalImages()">
             Look for Pet
           </button>
+          <div class="pb-1"></div>
         </div>
         <div class="py-3 col-12"></div>
         <div id="animalName" class="col-12 text-center"></div>
