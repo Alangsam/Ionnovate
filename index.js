@@ -531,4 +531,11 @@ function showVideo() {
   );
 }
 
-//showVideo();
+video.addEventListener("play", () => {
+  setInterval(async () => {
+    const faceObjects = await faceapi
+      .detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
+      .withFaceLandmarks();
+    console.log(faceObjects);
+  }, 200);
+});
