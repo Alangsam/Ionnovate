@@ -515,7 +515,7 @@ const video = document.getElementById("videoDisplay");
 
 Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri("/models"),
-  faceapi.nets.faceLandmark.loadFromUri("./models"),
+  faceapi.nets.faceLandmark68Net.loadFromUri("./models"),
   faceapi.nets.faceRecognitionNet.loadFromUri("./models"),
 ]).then(showVideo);
 
