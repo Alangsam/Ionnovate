@@ -490,8 +490,15 @@ function animalImages() {
   if (document.getElementById("animalImages").innerHTML.length > 0) {
     document.getElementById("animalName").innerHTML = "";
     let animalName = document.createElement("h3");
+    let applyHere = document.createElement("a");
     animalName.innerText = "This Could Be " + name;
-    document.getElementById("animalName").appendChild(animalName);
+    applyHere.innerText = "Apply to Adopt";
+    applyHere.className = "btn btn-dark ml-2";
+    applyHere.href = "application.html";
+    document
+      .getElementById("animalName")
+      .appendChild(animalName)
+      .appendChild(applyHere);
   } else {
     document.getElementById("animalName").innerHTML = "";
     let animalName = document.createElement("h3");

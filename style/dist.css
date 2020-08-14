@@ -9898,4 +9898,8 @@ h3 {
   display: none;
 }
 
+textarea {
+  resize: none;
+}
+
 /*# sourceMappingURL=dist.css.map */
