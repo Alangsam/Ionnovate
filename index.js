@@ -511,6 +511,14 @@ function animalImages() {
 //for video player
 const video = document.getElementById("videoDisplay");
 
+//load models from folder
+
+Promise.all([
+  faceapi.nets.tinyFaceDetector.loadFromUri("/models"),
+  faceapi.nets.faceLandmark.loadFromUri("./models"),
+  faceapi.nets.faceRecognitionNet.loadFromUri("./models"),
+]).then(showVideo);
+
 function showVideo() {
   navigator.getUserMedia(
     { video: {} },
@@ -523,4 +531,4 @@ function showVideo() {
   );
 }
 
-showVideo();
+//showVideo();
