@@ -508,6 +508,19 @@ function animalImages() {
   }
 }
 
-// function insertImages(userObject, animalObject) {
-//     switch(userObject.)
-//   console.log(document.getElementById("animalImages"));
+//for video player
+const video = document.getElementById("videoDisplay");
+
+function showVideo() {
+  navigator.getUserMedia(
+    { video: {} },
+    (res) => {
+      video.srcObject = res;
+    },
+    (err) => {
+      console.log(err);
+    }
+  );
+}
+
+showVideo();
