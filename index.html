@@ -402,7 +402,12 @@
             <h4 class="invalid-feedback"></h4>
             <div class="pb-3"></div>
             <label><h4>Last Name</h4></label>
-            <input id="petLast" name="name" class="form-control" />
+            <input
+              id="petLast"
+              name="name"
+              class="form-control"
+              onkeyup="nameValidate()"
+            />
           </form>
           <div class="pb-3"></div>
           <button

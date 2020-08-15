@@ -699,5 +699,24 @@ function allButtonsPressed() {
 
 function nameValidate() {
   const subButton = document.getElementById("subButton");
-  subButton.disabled = false;
+  const firstName = document.getElementById("petFirst");
+  const lastName = document.getElementById("petLast");
+  if (firstName.value.length === 0 || firstName.value.length > 20) {
+    subButton.disabled = true;
+    firstName.className = "form-control is-invalid";
+  } else {
+    subButton.disabled = false;
+    firstName.className = "form-control is-valid";
+  }
+  if (lastName.value.length > 20) {
+    subButton.disabled = true;
+    lastName.className = "form-control is-invalid";
+  } else if (
+    lastName.value.length <= 20 &&
+    firstName.value.length !== 0 &&
+    firstName.value.length <= 20
+  ) {
+    subButton.disabled = false;
+    lastName.className = "form-control is-valid";
+  }
 }
