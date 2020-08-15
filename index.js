@@ -532,10 +532,21 @@ function showVideo() {
 }
 
 video.addEventListener("play", () => {
+  //every 200 ms, perfrom face detection on the streaming video(webcam, declared on line 512)
+  const canvas = faceapi.createCanvasFromMedia(video);
+  canvas.className = "absoluteP";
+  document.getElementById("videoSource").append(canvas);
+  const displaySize = { width: video.width, height: video.height };
+  faceapi.matchDimensions(canvas, displaySize);
+
   setInterval(async () => {
     const faceObjects = await faceapi
       .detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
       .withFaceLandmarks();
-    console.log(faceObjects);
+    const sizedFaceObjects = faceapi.resizeResults(faceObjects, displaySize);
+    canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+    faceapi.draw.drawDetections(canvas, sizedFaceObjects);
+    faceapi.draw.drawFaceLandmarks(canvas, sizedFaceObjects);
+    faceapi.draw.drawFaceExpressions(canvas, sizedFaceObjects);
   }, 200);
 });

@@ -9902,4 +9902,8 @@ textarea {
   resize: none;
 }
 
+.absoluteP {
+  position: absolute;
+}
+
 /*# sourceMappingURL=dist.css.map */
