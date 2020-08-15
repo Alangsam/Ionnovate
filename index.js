@@ -520,7 +520,7 @@ Promise.all([
 ]).then(showVideo);
 
 function showVideo() {
-  navigator.getUserMedia(
+  navigator.mediaDevices.getUserMedia(
     { video: {} },
     (res) => {
       video.srcObject = res;
