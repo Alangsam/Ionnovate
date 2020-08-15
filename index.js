@@ -508,6 +508,8 @@ function animalImages() {
   }
 }
 
+//https://github.com/justadudewhohacks/face-api.js#getting-started-displaying-detection-results
+
 //for video player
 const video = document.getElementById("videoDisplay");
 
@@ -533,20 +535,169 @@ function showVideo() {
 
 video.addEventListener("play", () => {
   //every 200 ms, perfrom face detection on the streaming video(webcam, declared on line 512)
-  const canvas = faceapi.createCanvasFromMedia(video);
-  canvas.className = "absoluteP";
-  document.getElementById("videoSource").append(canvas);
-  const displaySize = { width: video.width, height: video.height };
-  faceapi.matchDimensions(canvas, displaySize);
+  // const canvas = faceapi.createCanvasFromMedia(video);
+  // canvas.className = "absoluteP";
+  // document.getElementById("videoSource").append(canvas);
+  // const displaySize = { width: video.width, height: video.height };
+  // faceapi.matchDimensions(canvas, displaySize);
 
-  setInterval(async () => {
-    const faceObjects = await faceapi
-      .detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
-      .withFaceLandmarks();
-    const sizedFaceObjects = faceapi.resizeResults(faceObjects, displaySize);
-    canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
-    faceapi.draw.drawDetections(canvas, sizedFaceObjects);
-    faceapi.draw.drawFaceLandmarks(canvas, sizedFaceObjects);
-    faceapi.draw.drawFaceExpressions(canvas, sizedFaceObjects);
-  }, 200);
+  let isHuman = 0;
+
+  var refreshId = setInterval(async () => {
+    const faceObjects = await faceapi.detectAllFaces(
+      video,
+      new faceapi.TinyFaceDetectorOptions()
+    );
+    console.log(faceObjects[0].score);
+    if (faceObjects[0].score > 0.9) {
+      let submitbutton = document.createElement("button");
+      let accNum = document.createElement("h4");
+      accNum.className = "text-success";
+      accNum.innerText =
+        "We are " + faceObjects[0].score + "% sure you're a human";
+      submitbutton.className = "btn btn-dark w-25 my-4";
+      submitbutton.innerText = "Submit";
+      submitbutton.setAttribute("onclick", "isNameValid()");
+      await document
+        .getElementById("sumbitFormButton")
+        .appendChild(submitbutton);
+      await document.getElementById("detectionAccuracy").appendChild(accNum);
+      clearInterval(refreshId);
+      video.parentNode.removeChild(video);
+      //   // console.log(faceObjects[0].detection.score);
+    }
+    console.log(isHuman);
+    // const sizedFaceObjects = faceapi.resizeResults(faceObjects, displaySize);
+    // canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+    // faceapi.draw.drawDetections(canvas, sizedFaceObjects);
+    // faceapi.draw.drawFaceLandmarks(canvas, sizedFaceObjects);
+    //console.log(faceObjects[0].detection.score);
+  }, 300);
 });
+
+//VALIDATION
+
+// function isPetNameValid() {
+//   const petFirst = document.getElementById("petFirst").value;
+//   const petLast = document.getElementById("petLast").value;
+//   const dogSize = document.querySelector("input[name='whichSize']:checked")
+//     .value;
+//   //const dogCrazy
+//   //const dogCoat
+//   if (petFirst.length > 0 && petFirst <= 30) {
+//   }
+//   console.log({ petFirst, petLast, dogSize });
+// }
+
+function isNameValid() {
+  const first = document.getElementById("appFirstName").value;
+  const middle = document.getElementById("appMidName").value;
+  const last = document.getElementById("appLastName").value;
+  const employedStatus = document.getElementById("employmentSelect").value;
+  const careExperience = [
+    document.querySelector(".messageCheckbox").checked,
+    document.querySelector(".messageCheckbox2").checked,
+    document.querySelector(".messageCheckbox3").checked,
+  ];
+  const careRange = document.getElementById("careRange").value;
+  const textBox = document.getElementById("personalText").value;
+
+  if (first.length === 0 || first.length > 30) {
+    first.className = "form-control is-invalid";
+  } else {
+    first.className = "form-control is-valid";
+  }
+  if (middle.length === 0 || middle.length > 30) {
+    middle.className = "form-control is-invalid";
+  } else {
+    middle.className = "form-control is-valid";
+  }
+  if (last.length === 0 || last.length > 30) {
+    last.className = "form-control is-invalid";
+  } else {
+    last.className = "form-control is-valid";
+  }
+
+  if (
+    first.length !== 0 &&
+    first.length <= 30 &&
+    middle.length !== 0 &&
+    middle.length <= 30 &&
+    last.length !== 0 &&
+    last.length <= 30 &&
+    textBox.length !== 0
+  ) {
+    console.log({
+      first,
+      middle,
+      last,
+      employedStatus,
+      careExperience,
+      careRange,
+      textBox,
+    });
+  }
+}
+
+function textAreaCountAndValidate() {
+  const length = document.getElementById("personalText").value.length;
+  const label = document.getElementById("labelForEssay");
+  label.innerText =
+    "Tell us About Yourself in less than 500 characters (" + length + "/500)";
+  if (length === 0) {
+    document.getElementById("personalText").className =
+      "form-control is-invalid";
+  }
+}
+
+// function consoleLogObject() {
+//   const nameValues = document.getElementById("nameGroup");
+
+//   const submitObject = {
+//     nameValues,
+//   };
+// }
+
+function allButtonsPressed() {
+  const animal = document.querySelector('input[name="whichSpecies"]:checked')
+    .value;
+  if (animal === "Dog") {
+    const dogSizes = document.querySelector("input[name='whichSize']:checked");
+    const dogPersonality = document.querySelector(
+      'input[name="whichCraziness"]:checked'
+    ).value;
+    const dogCoat = document.querySelector('input[name="whichCoat"]:checked')
+      .value;
+    if (dogSizes !== null && dogPersonality !== null && dogCoat !== null) {
+      showNaming();
+    }
+  } else if (animal === "Cat") {
+    const catSize = document.querySelector('input[name="whichWeight"]:checked')
+      .value;
+    const catEnergy = document.querySelector(
+      'input[name="whichEnergy"]:checked'
+    ).value;
+    const catCoat = document.querySelector('input[name="whichCoatCat"]:checked')
+      .value;
+    if (catSize !== null && catEnergy !== null && catCoat !== null) {
+      showNaming();
+    }
+  } else {
+    const fishCare = document.querySelector(
+      'input[name="fishDifficulty"]:checked'
+    ).value;
+    const fishColor = document.querySelector('input[name="fishColor"]:checked')
+      .value;
+    const fishNumber = document.querySelector(
+      'input[name="fishNumber"]:checked'
+    ).value;
+    if (fishCare !== null && fishColor !== null && fishNumber !== null) {
+      showNaming();
+    }
+  }
+}
+
+function nameValidate() {
+  const subButton = document.getElementById("subButton");
+  subButton.disabled = false;
+}

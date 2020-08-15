@@ -15,7 +15,7 @@
           Application for Adoption Eligibility
         </h1>
         <div class="col-12 text-center">
-          <div class="input-group mt-5">
+          <div class="input-group mt-5" id="nameGroup">
             <div class="input-group-prepend">
               <label for="appFirstName" class="input-group-text"
                 >First, M., Last</label
@@ -28,18 +28,17 @@
           <div class="input-group mt-5">
             <div class="input-group-prepend">
               <label for="employmentSelect" class="input-group-text"
-                >employment</label
+                >Employment Status</label
               >
             </div>
             <select class="custom-select" id="employmentSelect">
-              <option selected>Employment Status</option>
-              <option value="Unemployed">Unemployed</option>
+              <option selected value="Unemployed">Unemployed</option>
               <option value="Laid Off">Laid Off</option>
               <option value="Employed">Employed</option>
               <option value="Retired">Retired</option>
             </select>
           </div>
-          <div class="input-group mt-5">
+          <form class="input-group mt-5">
             <div class="input-group-prepend">
               <label for="" class="input-group-text"
                 >Have you Cared for an Animal Before?</label
@@ -48,26 +47,27 @@
             <label for="noExperience" class="pl-5 ml-5 mt-1">Never</label>
             <input
               id="noExperience"
-              class="form-control mr-4"
+              class="form-control mr-4 messageCheckbox"
               type="checkbox"
             />
             <label for="someExperience" class="pl-3 mt-1">Other's</label>
             <input
               id="someExperience"
-              class="form-control mr-4"
+              class="form-control mr-4 messageCheckbox2"
               type="checkbox"
             />
             <label for="yesExperience" class="pl-3 mt-1">My Own</label>
             <input
               id="yesExperience"
-              class="form-control mr-4"
+              class="form-control mr-4 messageCheckbox3"
               type="checkbox"
             />
-          </div>
+          </form>
           <div class="mt-5 col-6 offset-3">
             <form class="form-group">
               <label for="careRange"
-                >How much time can you allocate towards an animal?</label
+                >How much time can you allocate towards an animal?
+                (hours/day)</label
               >
               <input
                 type="range"
@@ -83,9 +83,19 @@
             </form>
           </div>
           <div>
-            <label>Tell us About Yourself in less than 500 characters</label>
-            <textarea class="form-control" maxlength="500" rows="9"></textarea>
+            <label id="labelForEssay"
+              >Tell us About Yourself in less than 500 characters</label
+            >
+            <textarea
+              id="personalText"
+              class="form-control"
+              maxlength="500"
+              rows="9"
+              onkeyup="textAreaCountAndValidate()"
+            ></textarea>
           </div>
+          <div id="detectionAccuracy"></div>
+          <div id="sumbitFormButton"></div>
           <div class="py-5">
             <div id="videoSource" class="w-50">
               <video
