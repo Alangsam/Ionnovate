@@ -557,7 +557,9 @@ video.addEventListener("play", () => {
         "We are " + faceObjects[0].score + "% sure you're a human";
       submitbutton.className = "btn btn-dark w-25 my-4";
       submitbutton.innerText = "Submit";
+      submitbutton.id = "subButtonnn";
       submitbutton.setAttribute("onclick", "isNameValid()");
+
       await document
         .getElementById("sumbitFormButton")
         .appendChild(submitbutton);
@@ -590,9 +592,9 @@ video.addEventListener("play", () => {
 // }
 
 function isNameValid() {
-  const first = document.getElementById("appFirstName").value;
-  const middle = document.getElementById("appMidName").value;
-  const last = document.getElementById("appLastName").value;
+  const first = document.getElementById("appFirstName");
+  const middle = document.getElementById("appMidName");
+  const last = document.getElementById("appLastName");
   const employedStatus = document.getElementById("employmentSelect").value;
   const careExperience = [
     document.querySelector(".messageCheckbox").checked,
@@ -602,29 +604,34 @@ function isNameValid() {
   const careRange = document.getElementById("careRange").value;
   const textBox = document.getElementById("personalText").value;
 
-  if (first.length === 0 || first.length > 30) {
+  if (first.value.length === 0 || first.value.length > 30) {
     first.className = "form-control is-invalid";
   } else {
     first.className = "form-control is-valid";
   }
-  if (middle.length === 0 || middle.length > 30) {
+  if (middle.value.length === 0 || middle.value.length > 30) {
     middle.className = "form-control is-invalid";
   } else {
     middle.className = "form-control is-valid";
   }
-  if (last.length === 0 || last.length > 30) {
+  if (last.value.length === 0 || last.value.valuelength > 30) {
     last.className = "form-control is-invalid";
   } else {
     last.className = "form-control is-valid";
   }
 
+  if (textBox.length === 0) {
+    document.getElementById("personalText").className =
+      "form-control is-invalid";
+  } else document.getElementById("personalText").className = "form-control";
+
   if (
-    first.length !== 0 &&
-    first.length <= 30 &&
-    middle.length !== 0 &&
-    middle.length <= 30 &&
-    last.length !== 0 &&
-    last.length <= 30 &&
+    first.value.length !== 0 &&
+    first.value.length <= 30 &&
+    middle.value.length !== 0 &&
+    middle.value.length <= 30 &&
+    last.value.length !== 0 &&
+    last.value.length <= 30 &&
     textBox.length !== 0
   ) {
     console.log({
@@ -639,6 +646,25 @@ function isNameValid() {
   }
 }
 
+function checkIfAllReadyForSub() {
+  const first = document.getElementById("appFirstName");
+  const middle = document.getElementById("appMidName");
+  const last = document.getElementById("appLastName");
+  const textBox = document.getElementById("personalText").value;
+
+  if (
+    first.value.length !== 0 &&
+    first.value.length <= 30 &&
+    middle.value.length !== 0 &&
+    middle.value.length <= 30 &&
+    last.value.length !== 0 &&
+    last.value.length <= 30 &&
+    textBox.length !== 0
+  ) {
+    document.getElementById("subButtonnn").disabled = false;
+  } else document.getElementById("subButtonnn").disabled = true;
+}
+
 function textAreaCountAndValidate() {
   const length = document.getElementById("personalText").value.length;
   const label = document.getElementById("labelForEssay");
@@ -647,7 +673,7 @@ function textAreaCountAndValidate() {
   if (length === 0) {
     document.getElementById("personalText").className =
       "form-control is-invalid";
-  }
+  } else document.getElementById("personalText").className = "form-control";
 }
 
 // function consoleLogObject() {
